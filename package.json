@@ -27,7 +27,9 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "firebase": "^5.8.6",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-firebaseui": "^3.1.2"
   }
 }
