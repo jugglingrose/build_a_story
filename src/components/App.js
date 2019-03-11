@@ -1,16 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Auth from './Auth';
+import Nav from './Nav';
+import Footer from './Footer';
+import StoriesList from './StoriesList';
 
-const title = "Corean's Auth App";
 
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state={
+      stories: {},
+      cur_story: {},
+    }
+  }
+
+  
   render() {
     return(
       <div>
-        <div>{title}</div>
-        <Auth />
+        <Nav />
+        {/* <Auth /> */}
+        <StoriesList />
+        <Footer />
       </div>
     )
   }
