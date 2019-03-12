@@ -3,7 +3,10 @@ import React from 'react';
 class AddText extends React.Component{
   render(){
     return(
-      <div>This will be a form field where a user can add text</div>
+      <div>
+        <h2>Enter Your Story</h2>
+        <p>Text Form Field</p>
+      </div>
     )
   }
 }
