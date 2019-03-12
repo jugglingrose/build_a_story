@@ -1,13 +1,18 @@
 import React from 'react';
 import AddText from './AddText';
 
+
 class Story extends React.Component{
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount(){
-    /*this.props.loadStory(this.props.match.params.id);*/
-    var id = this.props.match.params.id;
-    console.log(id);
-    this.props.loadStory(id);
+    this.props.getStory( this.props.match.params.id, 
+      (story) => {
+        console.log(story);
+      }
+    );
   }
 
   render(){

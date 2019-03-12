@@ -48,9 +48,10 @@ export function getStories(callback) {
 }
 
 export function getStory(id, callback) {
+  console.log("get story called");
   for(var i = 0; i<stories.length; i++){
-    if(stories[i].id === id){
-      callback(story);
+    if(stories[i].id == id){
+      callback(stories[i]);
     }
   }
   callback(null);
