@@ -52,6 +52,7 @@ export function getStory(id, callback) {
   for(var i = 0; i<stories.length; i++){
     if(stories[i].id == id){
       callback(stories[i]);
+      return;
     }
   }
   callback(null);
