@@ -1,6 +1,7 @@
 import React from 'react';
 import AddText from './AddText';
 import { Container } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 class Story extends React.Component{
   constructor(props) {
@@ -14,6 +15,7 @@ class Story extends React.Component{
     console.log('Story component did mount');
     this.props.getStory( this.props.match.params.id, 
       (story) => {
+        console.log(story);
         this.setState({cur_story: story});
       }
     );
@@ -27,19 +29,12 @@ class Story extends React.Component{
       )
     }
 
-    console.log(this.state.cur_story.child_story[1].title);
     return(
       <Container text>
-        <h2>{this.state.cur_story.title}</h2>
-        <p>{this.state.cur_story.text}</p>
-        {
-          this.state.cur_story.child_story.map((story, id) => <p>{this.state.cur_story.child_story[id].title}</p> )
-        }
+        <h2>title</h2>
+        <p>text</p>
        
-        
-       
-        <AddText />
-      
+        <AddText /> 
       </Container>
 
     )

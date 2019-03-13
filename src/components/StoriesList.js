@@ -7,7 +7,7 @@ class StoriesList extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      stories : []
+      stories : {}
     };
   }
 
@@ -20,15 +20,21 @@ class StoriesList extends React.Component{
   }
 
   render(){
-  
+    if (this.state.stories === undefined) {
+      return (
+        <div>Loading...</div>
+      )
+    }
+
+    var root_stories = Object.values(this.state.stories).filter((story) => story.parent_id == null);
+    console.log(root_stories);
+
     return(
       <div>
         <h1>Stories</h1>
-
         {
-          this.state.stories.map((story, id) => <Synopsis key={id} details={this.state.stories[id]} /> )
+          root_stories.map((story, id) =>  <Synopsis id={id} details={story} /> )
         }
-
       </div>
     )
   }
