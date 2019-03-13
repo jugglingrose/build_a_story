@@ -12,17 +12,10 @@ import {getStories, getStory} from '../interface.js';
 
 class App extends React.Component {
   constructor(props) {
-    console.log('constructor called');
     super(props);
   }
 
-  componentDidMount(){
-    /*this.props.loadStory(this.props.match.params.id);*/
-    console.log("component did mount");
-  }
-
   render() {
-    console.log("render called");
     return(
       <div>
         <Nav />
