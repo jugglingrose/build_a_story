@@ -8,12 +8,12 @@ class Story extends React.Component{
     super(props);
     this.state = {
       cur_story : undefined,
-      child_stories: [],
+      child_stories: undefined,
     }
   }
 
   componentDidMount(){
-    console.log('Story component did mount');
+    console.log('Story componentDidMount()');
     this.props.getStory( this.props.match.params.id, 
       (story) => {
         console.log(story);
@@ -24,24 +24,26 @@ class Story extends React.Component{
     this.props.getChildStories( this.props.match.params.id, 
       (stories) => {
         console.log("here are my child stories:" + stories);
-        this.setState({child_stories : stories});
+        this.setState({child_stories : stories}); 
       })
   }
 
   render(){
-    console.log('render Story');
-    if (this.state.cur_story === undefined) {
+    console.log('render <Story />');
+    if (this.state.cur_story === undefined || this.state.child_stories === undefined) {
       return (
         <div>Loading...</div>
       )
     }
 
+    console.log("child_stories:" + this.state.child_stories);
     return(
       <Container text>
         <h2>{this.state.cur_story.title}</h2>
         <p>{this.state.cur_story.text}</p>
-        
-       
+        {
+          this.state.child_stories.map((story)=> <p>{story.title}</p>)
+        }
         <AddText /> 
       </Container>
 

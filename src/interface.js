@@ -36,7 +36,7 @@ var stories = {
     title: "Rufus meets another dog",
     text: "Rufus's owner quickly leashed him up and they both headed to the park.  As soon as they arrived, Rufus noticed a dog he's never seen before."
   },
-  "option_b_2": {
+  "option__2": {
     id: "option_a_2",
     parent_id: "Rufus",
     title: "Rufus chases a butterfly",
@@ -49,14 +49,14 @@ export function getStories(callback) {
 }
 
 export function getStory(id, callback) {
-  console.log("get story called");
+  console.log("getStory()");
   var match = stories[id]
   callback(match); 
   /*callback(null);*/
 }
 
 export function getChildStories(id, callback) {
-  console.log("get child stories function called");
+  console.log("getChildStories()");
   var child_stories = Object.values(stories).filter((story) => story.parent_id == id);
   callback(child_stories)
 }
