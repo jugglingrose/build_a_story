@@ -58,7 +58,12 @@ export function getStory(id, callback) {
 export function getChildStories(id, callback) {
   console.log("getChildStories()");
   var child_stories = Object.values(stories).filter((story) => story.parent_id == id);
+  if (child_stories.length == 0){
+    child_stories = undefined;
+  }
   callback(child_stories)
+
+  
 }
 
 export function addStory(parent_id, story, callback) {
