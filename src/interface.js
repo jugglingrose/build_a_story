@@ -12,7 +12,7 @@ var stories = {
     title: "Boots catches the mouse",
     text: "The poor mouse look terrified and Boots saw this as his chance to pounce.  In a flash, Boots caught the mouse who was now trembling with fear.",
   },
-  "chapter_b_1": {
+  "chapter_a_b_1": {
     id: "chapter_b_1",
     parent_id: "chapter_a_1",
     title: "Boots releases the mouse",
@@ -30,13 +30,13 @@ var stories = {
     title: "Rufus The Dog Goes To The Park",
     text: "It was a beautiful sunny morning and Rufus the dog had been waiting patiently by the front door for so long he had fallen asleep.  Suddenly he heard the jingle of his leash and the foot steps of his owner.  He jumped up with his tail wagging, it was finally time to go to the park!",
   },
-  "option_a_1": {
+  "option_b_1": {
     id: "option_a_1",
     parent_id: "Rufus",
     title: "Rufus meets another dog",
     text: "Rufus's owner quickly leashed him up and they both headed to the park.  As soon as they arrived, Rufus noticed a dog he's never seen before."
   },
-  "option_a_2": {
+  "option_b_2": {
     id: "option_a_2",
     parent_id: "Rufus",
     title: "Rufus chases a butterfly",
@@ -50,11 +50,15 @@ export function getStories(callback) {
 
 export function getStory(id, callback) {
   console.log("get story called");
-  var match = Object.values(stories).filter((story) => story.id == "Boots") ;
-  callback(match);
-
-  
+  var match = stories[id]
+  callback(match); 
   /*callback(null);*/
+}
+
+export function getChildStories(id, callback) {
+  console.log("get child stories function called");
+  var child_stories = Object.values(stories).filter((story) => story.parent_id == id);
+  callback(child_stories)
 }
 
 export function addStory(parent_id, story, callback) {

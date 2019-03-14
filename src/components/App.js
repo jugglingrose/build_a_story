@@ -6,7 +6,7 @@ import Nav from './Nav';
 import Footer from './Footer';
 import StoriesList from './StoriesList';
 import Story from './Story';
-import {getStories, getStory} from '../interface.js';
+import {getStories, getStory, getChildStories} from '../interface.js';
 
 
 
@@ -22,7 +22,7 @@ class App extends React.Component {
         {/* <Auth /> */}
         <Switch>
           <Route exact path="/" render={(props) => (<StoriesList {...props} getStories={getStories} />)} />/>
-          <Route exact path="/story/:id" render={(props) => (<Story {...props} getStory={getStory} />)} />
+          <Route exact path="/story/:id" render={(props) => (<Story {...props} getStory={getStory} getChildStories={getChildStories} />)} />
         </Switch>
         <Footer />
       </div>

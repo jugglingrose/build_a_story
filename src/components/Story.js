@@ -7,7 +7,8 @@ class Story extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      cur_story : undefined
+      cur_story : undefined,
+      child_stories: [],
     }
   }
 
@@ -19,6 +20,12 @@ class Story extends React.Component{
         this.setState({cur_story: story});
       }
     );
+
+    this.props.getChildStories( this.props.match.params.id, 
+      (stories) => {
+        console.log("here are my child stories:" + stories);
+        this.setState({child_stories : stories});
+      })
   }
 
   render(){
@@ -31,8 +38,9 @@ class Story extends React.Component{
 
     return(
       <Container text>
-        <h2>title</h2>
-        <p>text</p>
+        <h2>{this.state.cur_story.title}</h2>
+        <p>{this.state.cur_story.text}</p>
+        
        
         <AddText /> 
       </Container>

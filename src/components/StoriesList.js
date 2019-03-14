@@ -11,6 +11,7 @@ class StoriesList extends React.Component{
     };
   }
 
+  //Grab all of our stories from our database with their key:value pairs and set local state//
   componentDidMount(){
     this.props.getStories(
       (stories) => {
@@ -26,9 +27,11 @@ class StoriesList extends React.Component{
       )
     }
 
+    // Here we want to filter out stories and gather only our top level stories.  These stories have no parent //
     var root_stories = Object.values(this.state.stories).filter((story) => story.parent_id == null);
     console.log(root_stories);
 
+    // Display our root stories using synopsis component //
     return(
       <div>
         <h1>Stories</h1>

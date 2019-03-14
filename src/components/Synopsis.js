@@ -7,10 +7,13 @@ class Synopsis extends React.Component{
   render(){
     console.log("synopsis rendered");
     var story = this.props.details;
-    console.log(story);
-    console.log(this.props.key);
+    console.log("synopsis story objet key:" + story.id);
+    
+
+    /* is story.id okay?  It relies on the value id rather than the key name.  could this cause problems later? */
     return(
       <div>
+        
         <Link to= {"/story/" + story.id}> <h2>{story.title}</h2> </Link>
         <p>{story.text}</p>
       </div>
