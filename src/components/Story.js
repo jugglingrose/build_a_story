@@ -28,6 +28,10 @@ class Story extends React.Component{
       })
   }
 
+  componentWillUnmount(){
+    console.log("component unmounted");
+  }
+
   render(){
     console.log('render <Story />');
     if (this.state.cur_story === undefined || this.state.child_stories === undefined) {
@@ -36,13 +40,13 @@ class Story extends React.Component{
       )
     }
 
-    console.log("child_stories:" + this.state.child_stories);
+    console.log("child_stories:" + this.state.child_stories[0].id);
     return(
       <Container text>
         <h2>{this.state.cur_story.title}</h2>
         <p>{this.state.cur_story.text}</p>
         {
-          this.state.child_stories.map((story)=> <p>{story.title}</p>)
+          this.state.child_stories.map((story)=> <Link to={"/story/" + story.id}> <p>{story.title}</p> </Link> )
         }
         <AddText /> 
       </Container>
