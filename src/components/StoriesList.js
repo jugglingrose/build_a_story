@@ -36,7 +36,7 @@ class StoriesList extends React.Component{
       <div>
         <h1>Stories</h1>
         {
-          root_stories.map((story, id) =>  <Synopsis id={id} details={story} /> )
+          root_stories.map((story, id) =>  <Synopsis id={id} key={id} details={story} /> )
         }
       </div>
     )

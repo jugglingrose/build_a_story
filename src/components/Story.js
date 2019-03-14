@@ -28,9 +28,6 @@ class Story extends React.Component{
       })
   }
 
-  componentWillUnmount(){
-    console.log("component unmounted");
-  }
 
   render(){
     console.log('render <Story />');
