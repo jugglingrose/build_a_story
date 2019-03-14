@@ -16,7 +16,6 @@ class Story extends React.Component{
     console.log('Story componentDidMount()');
     this.props.getStory( this.props.match.params.id, 
       (story) => {
-        
         this.setState({cur_story: story});
       }
     );
