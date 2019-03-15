@@ -21,13 +21,10 @@ class App extends React.Component {
       <div>
         <Nav />
         {/* <Auth /> */}
-       
           <Switch>
             <Route exact path="/" render={(props) => (<StoriesList {...props} getStories={getStories} />)} />/>
             <Route exact path="/story/:id" render={(props) => (<Story {...props} key={props.location.pathname} getStory={getStory} getChildStories={getChildStories} />)} />
           </Switch>
-      
-        
         <Footer />
       </div>
     )
