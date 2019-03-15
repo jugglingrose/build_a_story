@@ -10,15 +10,17 @@ class Story extends React.Component{
     this.state = {
       cur_story : undefined,
       child_stories: undefined,
-      value: '',
     }
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    console.log(event.target.name);
+    const name = event.target.name;
+    this.setState({
+      [name]: event.target.value
+    });
   }
-
 
   componentDidMount(){
     console.log('Story componentDidMount()');
@@ -33,7 +35,6 @@ class Story extends React.Component{
         this.setState({child_stories : stories}); 
       })
   }
-
 
   render(){
     const areChildren = this.state.child_stories != undefined;
@@ -54,12 +55,11 @@ class Story extends React.Component{
         <h2>Enter Your Story</h2>
         <Form>
           <Form.Group widths='equal'>
-            <Form.Input type="text" value={this.state.value} onChange={this.handleChange} label='Title' placeholder='title ' />
+            <Form.Input type="text" name="title" value={this.state.value} onChange={this.handleChange} label='Title' placeholder='Title ' />
           </Form.Group>
-          <Form.TextArea label='Path' placeholder='Add your story segment here....' />
+          <Form.TextArea label='Path' name="chapter" value={this.state.value} onChange={this.handleChange} placeholder='Add your story segment here....' />
           <Form.Button onClick={this.createStory}>Submit</Form.Button>
         </Form>
-      
       </Container>
 
     )
