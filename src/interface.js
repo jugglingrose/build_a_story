@@ -58,14 +58,11 @@ export function getStory(id, callback) {
 export function getChildStories(id, callback) {
   console.log("getChildStories()");
   var child_stories = Object.values(stories).filter((story) => story.parent_id == id);
-  console.log(child_stories);
   callback(child_stories)
-  
 }
 
 export function addStory(state) {
-  console.log("add story called");
-  stories[state.title] = state;
+  stories[state.id] = state;
   console.log(stories);
 
 

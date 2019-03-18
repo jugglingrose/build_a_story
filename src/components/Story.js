@@ -12,8 +12,7 @@ class Story extends React.Component{
     }
   }
 
- 
-
+  
   /* Gather our Current Story based on our url param*/
   componentDidMount(){
     console.log('Story componentDidMount()');
@@ -31,8 +30,9 @@ class Story extends React.Component{
   }
 
   render(){
-    const areChildren = this.state.child_stories != undefined;
-    console.log("are Children?" + areChildren);
+    console.log("<Story /> render()");
+    //const areChildren = this.state.child_stories != undefined;
+
     if (this.state.cur_story === undefined || this.state.child_stories === undefined) {
       return (
         <div>Loading...</div>

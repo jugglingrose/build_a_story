@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form } from 'semantic-ui-react';
 
+
+
 class AddText extends React.Component{
   constructor(props){
     super(props);
@@ -9,12 +11,15 @@ class AddText extends React.Component{
     this.newChapter = this.newChapter.bind(this);
 
     this.state = {
-      id: '',
+      /*when we develop our backend, the id will need to be empty and our UUID will need to be generated in the backend on submti.  For now,
+      we have a temporary id generator in place */
+      id: Math.floor(Math.random() * 100000000),
       parent_id: this.props.cur_story.id,
       title: ' ',
       chapter: ''
     }
   }
+  
 
   handleChange(event) {
     this.setState({ [event.target.name] : event.target.value});   
