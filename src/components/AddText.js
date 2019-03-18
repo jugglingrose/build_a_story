@@ -21,7 +21,6 @@ class AddText extends React.Component{
     }
   }
   
-
   handleChange(event) {
     this.setState({ [event.target.name] : event.target.value});   
   }
@@ -29,6 +28,7 @@ class AddText extends React.Component{
   newChapter(){
     const newChapter = this.state;
     this.props.addStory(newChapter);
+    this.props.getChildren();
   }
 
   render(){
@@ -37,7 +37,6 @@ class AddText extends React.Component{
         <Container className='h2' textAlign="center">
           <Header as='h2'>Enter Your Story Here:</Header>
         </Container>
-        
         
           <Form>
             <Form.Group widths='equal'>
@@ -49,7 +48,6 @@ class AddText extends React.Component{
             </Container>
           </Form>
 
-     
       </Container>
     )
   }
