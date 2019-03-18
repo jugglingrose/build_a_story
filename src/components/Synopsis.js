@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Header } from 'semantic-ui-react'
+
 
 
 class Synopsis extends React.Component{
@@ -12,10 +14,13 @@ class Synopsis extends React.Component{
 
     /* is story.id okay?  It relies on the value id rather than the key name.  could this cause problems later? */
     return(
-      <div>
-        
-        <Link to= {"/story/" + story.id}> <h2>{story.title}</h2> </Link>
-        <p>{story.text}</p>
+      <div className="synopsis_box">   
+        <div className="synopsis_title">
+          <Link to= {"/story/" + story.id}> 
+            <Header as='h2'>{story.title}</Header> 
+          </Link>
+        </div> 
+        <p>{story.chapter.substr(0,100)}...</p>
       </div>
     )
   }

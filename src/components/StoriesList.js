@@ -2,6 +2,7 @@ import React from 'react';
 import Synopsis from './Synopsis';
 import PropTypes from 'prop-types';
 import { getStories } from '../interface';
+import { Container, Header } from 'semantic-ui-react'
 
 class StoriesList extends React.Component{
   constructor(props) {
@@ -33,12 +34,14 @@ class StoriesList extends React.Component{
 
     // Display our root stories using synopsis component //
     return(
-      <div>
-        <h1>Stories</h1>
-        {
-          root_stories.map((story, id) =>  <Synopsis id={id} key={id} details={story} /> )
-        }
-      </div>
+      <Container text>
+        <Container textAlign="center">
+          <Header as='h1'>Stories</Header>
+        </Container>
+          {
+            root_stories.map((story, id) =>  <Synopsis id={id} key={id} details={story} /> )
+          }
+      </Container>
     )
   }
 }

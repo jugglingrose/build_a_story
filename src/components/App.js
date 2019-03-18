@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom'
+import './styles/app.css';
 
 import Auth from './Auth';
 import Nav from './Nav';

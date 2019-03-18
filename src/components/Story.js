@@ -12,7 +12,6 @@ class Story extends React.Component{
     }
   }
 
-  
   /* Gather our Current Story based on our url param*/
   componentDidMount(){
     console.log('Story componentDidMount()');
@@ -45,7 +44,7 @@ class Story extends React.Component{
         {
             this.state.child_stories.map((story)=> <Link to={"/story/" + story.id}> <p>{story.title}</p> </Link> )
         }
-        <h2>Enter Your Story</h2>
+        
         
         <AddText cur_story={this.state.cur_story} addStory={this.props.addStory} />
         

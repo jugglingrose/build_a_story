@@ -26,9 +26,7 @@ class AddText extends React.Component{
   }
 
   newChapter(){
-    console.log('new chapter called');
     const newChapter = this.state;
-    console.log(newChapter);
     this.props.addStory(newChapter);
   }
 
