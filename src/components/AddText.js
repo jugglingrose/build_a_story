@@ -6,11 +6,12 @@ class AddText extends React.Component{
     super(props);
   
     this.handleChange = this.handleChange.bind(this);
+    this.newChapter = this.newChapter.bind(this);
 
     this.state = {
       id: '',
-      parent_id: '',
-      title: '',
+      parent_id: this.props.cur_story.id,
+      title: ' ',
       chapter: ''
     }
   }
@@ -19,12 +20,11 @@ class AddText extends React.Component{
     this.setState({ [event.target.name] : event.target.value});   
   }
 
-  createStory(){
-    console.log("create story called");
-    const story = {
-      title: this.title.value
-    }
-    console.log(story);
+  newChapter(){
+    console.log('new chapter called');
+    const newChapter = this.state;
+    console.log(newChapter);
+    this.props.addStory(newChapter);
   }
 
   render(){
@@ -36,7 +36,7 @@ class AddText extends React.Component{
             <Form.Input type="text" name="title" value={this.state.title} onChange={this.handleChange} label='Title' placeholder='Title ' />
           </Form.Group>
           <Form.TextArea label='Path' name="chapter" value={this.state.chapter} onChange={this.handleChange} placeholder='Add your story segment here....' />
-          <Form.Button onClick={this.createStory}>Submit</Form.Button>
+          <Form.Button onClick={this.newChapter}>Submit</Form.Button>
         </Form>
       </div>
     )

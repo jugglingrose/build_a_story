@@ -47,7 +47,7 @@ class Story extends React.Component{
         }
         <h2>Enter Your Story</h2>
         
-        <AddText />
+        <AddText cur_story={this.state.cur_story} addStory={this.props.addStory} />
         
       </Container>
     )

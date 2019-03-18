@@ -63,7 +63,11 @@ export function getChildStories(id, callback) {
   
 }
 
-export function addStory(parent_id, story, callback) {
+export function addStory(state) {
+  console.log("add story called");
+  stories[state.title] = state;
+  console.log(stories);
+
 
 }
 
