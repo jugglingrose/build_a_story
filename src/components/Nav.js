@@ -1,9 +1,13 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react'
 
 class Nav extends React.Component{
   render(){
     return(
-      <div>Navbar</div>
+      <Container fluid className='nav'>
+        Navbar
+        
+      </Container>
     )
   }
 }

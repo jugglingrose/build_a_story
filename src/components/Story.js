@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AddText from './AddText';
-import { Container} from 'semantic-ui-react';
+import { Container, Header, Grid} from 'semantic-ui-react';
 
 class Story extends React.Component{
   constructor(props) {
@@ -31,23 +31,23 @@ class Story extends React.Component{
   render(){
     console.log("<Story /> render()");
     //const areChildren = this.state.child_stories != undefined;
-
     if (this.state.cur_story === undefined || this.state.child_stories === undefined) {
       return (
         <div>Loading...</div>
       )
     }
     return(
-      <Container text>
-        <h2>{this.state.cur_story.title}</h2>
+      <Container className="story_container" text>
+        <Container className="h2" textAlign="center">
+          <Header as='h2'>{this.state.cur_story.title}</Header>
+        </Container>
         <p>{this.state.cur_story.chapter}</p>
+      
         {
             this.state.child_stories.map((story)=> <Link to={"/story/" + story.id}> <p>{story.title}</p> </Link> )
         }
-        
-        
-        <AddText cur_story={this.state.cur_story} addStory={this.props.addStory} />
-        
+     
+        <AddText cur_story={this.state.cur_story} addStory={this.props.addStory} />  
       </Container>
     )
   }

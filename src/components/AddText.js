@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from 'semantic-ui-react';
+import { Container, Header, Grid} from 'semantic-ui-react';
 
 
 
@@ -32,16 +33,24 @@ class AddText extends React.Component{
 
   render(){
     return(
-      <div>
-        <h2>Enter Your Story</h2>
-        <Form>
-          <Form.Group widths='equal'>
-            <Form.Input type="text" name="title" value={this.state.title} onChange={this.handleChange} label='Title' placeholder='Title ' />
-          </Form.Group>
-          <Form.TextArea label='Path' name="chapter" value={this.state.chapter} onChange={this.handleChange} placeholder='Add your story segment here....' />
-          <Form.Button onClick={this.newChapter}>Submit</Form.Button>
-        </Form>
-      </div>
+      <Container>
+        <Container className='h2' textAlign="center">
+          <Header as='h2'>Enter Your Story Here:</Header>
+        </Container>
+        
+        
+          <Form>
+            <Form.Group widths='equal'>
+              <Form.Input type="text" name="title" value={this.state.title} onChange={this.handleChange} label='Title' placeholder='Title ' />
+            </Form.Group>
+            <Form.TextArea label='Chapter' name="chapter" value={this.state.chapter} onChange={this.handleChange} placeholder='Add your story segment here....' />
+            <Container textAlign="center">
+              <Form.Button onClick={this.newChapter}>Submit</Form.Button>
+            </Container>
+          </Form>
+
+     
+      </Container>
     )
   }
 }

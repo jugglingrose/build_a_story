@@ -1,3 +1,60 @@
-.synopsis_title{
-  background-color: red;
+.ui.form{
+  margin: 20px;
 }
+
+.content{
+  background-color: #edfdda;
+  height: 90vh;
+}
+
+.synopsis_box{
+  padding: 20px 0 20px 0;
+}
+
+.synopsis_title{
+  background-color: #89BD9E;
+}
+
+.synopsis_text{
+  background-color: white;
+  padding: 10px;
+}
+
+.h2 h2.ui.header{
+  padding: 20px;
+}
+
+/* ----------------- */
+/* NAV BAR */
+
+.nav{
+  background-color: #89BD9e;
+  height: 50px;
+}
+
+/* ----------------- */
+/* FOOTER */
+.footer {
+  background-color: #39393a;
+  height: 50px;
+  color: white;
+}
+
+.footer p{
+  padding-top: 15px;
+}
+
+
+/* ----------------- */
+/* STORY COMPONENT  */
+
+.story_container{
+  background-color: white;
+  height: 90vh;
+}
+
+.story_container button.ui.button{
+  background-color: #89BD9E;
+  color: white;
+}
+
