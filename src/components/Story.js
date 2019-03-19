@@ -30,9 +30,7 @@ class Story extends React.Component{
       }
     );
 
-    this.getChildren();
-
-   
+    this.getChildren();  
   }
 
   render(){

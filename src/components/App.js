@@ -10,22 +10,22 @@ import StoriesList from './StoriesList';
 import Story from './Story';
 import {getStories, getStory, getChildStories, addStory} from '../interface.js';
 
-
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state={
+      isSignedIn: false
+    }
   }
 
   render() {
     return(
       <div>
-        <Nav />
-        {/* <Auth /> */}
+        <Nav isSignedIn={this.state.isSignedIn} />
         <div className='content'>
           <Switch>
             <Route exact path="/" render={(props) => (<StoriesList {...props} getStories={getStories} />)} />/>
+            <Route exact path="/login" render={(props) => (<Auth {...props} isSignedIn={this.state.isSignedIn} />) } />
             <Route exact path="/story/:id" render={(props) => (<Story {...props} key={props.location.pathname} addStory={addStory} getStory={getStory} getChildStories={getChildStories} />)} />
           </Switch>
         </div>

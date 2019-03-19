@@ -6,9 +6,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 class Auth extends React.Component {
   constructor() {
     super();
-    this.state = {
-      isSignedIn: undefined
-    }
+  
     this.uiConfig = {
       signInFlow: 'popup',
       signInOptions: [
@@ -19,12 +17,13 @@ class Auth extends React.Component {
       }
     }
   }
-  
-  componentDidMount() {
+
+
+  /*componentDidMount() {
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       (user) => this.setState({isSignedIn: !!user})
     );
-  };
+  };*/
 
   componentWillUnmount() {
     this.unregisterAuthObserver();
@@ -32,27 +31,26 @@ class Auth extends React.Component {
 
   
   render() {
-    if(this.state.isSignedIn === true) {
+    /*if(this.props.isSignedIn === true) {
       return (
         <>
-        <div>I'm logged in</div>
+        <div>Logged In</div>
         <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
         </>
       )
-    }
-    else if(this.state.isSignedIn === false) {
+    }*/
+    if(this.props.isSignedIn === false) {
       return (
         <>
-          <div>NOT logged in</div>
           <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
         </>
       )
     }
-    else{
+    /*else{
       return (
         <div>undefined logged in state</div>
       )
-    }
+    }*/
 
   }
 }
