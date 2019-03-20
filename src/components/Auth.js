@@ -16,7 +16,7 @@ class Auth extends React.Component {
       callbacks: {
         signInSuccessWithAuthResult: (authResult, redirectUrl ) => {
           console.log('signInSuccessWithAuthResult', authResult, redirectUrl);
-          this.props.updateSignedIn(true);
+          //this.props.updateSignedIn(true);
           this.props.history.push('/');
           return false;
         }

@@ -10,6 +10,9 @@ import StoriesList from './StoriesList';
 import Story from './Story';
 import {getStories, getStory, getChildStories, addStory} from '../interface.js';
 
+import firebase from '../firebase';
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +25,19 @@ class App extends React.Component {
   updateSignedIn(value){
     console.log('update signed in');
     this.setState({isSignedIn : value});
+  }
+
+  componentDidMount() {
+    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+      (user) => {
+        console.log('firebase auth state changed', user)
+        this.updateSignedIn(!!user)
+      }
+    );
+  }
+
+  componentWillUnmount() {
+    this.unregisterAuthObserver();
   }
 
   render() {
