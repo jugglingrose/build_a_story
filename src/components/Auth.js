@@ -12,12 +12,18 @@ class Auth extends React.Component {
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
-      callback: {
-        signInSuccessWithAuthResult: () => false
+      /*signInSuccessUrl: '/', */
+      callbacks: {
+        signInSuccessWithAuthResult: (authResult, redirectUrl ) => {
+          console.log('signInSuccessWithAuthResult', authResult, redirectUrl);
+          this.props.updateSignedIn(true);
+          this.props.history.push('/');
+          return false;
+        }
+        /*signInSuccessWithAuthResult: () => false*/
       }
     }
   }
-
 
   /*componentDidMount() {
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
@@ -25,10 +31,11 @@ class Auth extends React.Component {
     );
   };*/
 
+  /*
   componentWillUnmount() {
     this.unregisterAuthObserver();
   }
-
+  */
   
   render() {
     /*if(this.props.isSignedIn === true) {
@@ -45,7 +52,13 @@ class Auth extends React.Component {
           <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
         </>
       )
+    } else {
+      return (
+        <></>
+      )
     }
+
+
     /*else{
       return (
         <div>undefined logged in state</div>

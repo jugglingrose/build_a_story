@@ -16,6 +16,12 @@ class App extends React.Component {
     this.state={
       isSignedIn: false
     }
+    this.updateSignedIn = this.updateSignedIn.bind(this);
+  }
+
+  updateSignedIn(value){
+    console.log('update signed in');
+    this.setState({isSignedIn : value});
   }
 
   render() {
@@ -25,7 +31,7 @@ class App extends React.Component {
         <div className='content'>
           <Switch>
             <Route exact path="/" render={(props) => (<StoriesList {...props} getStories={getStories} />)} />/>
-            <Route exact path="/login" render={(props) => (<Auth {...props} isSignedIn={this.state.isSignedIn} />) } />
+            <Route exact path="/login" render={(props) => (<Auth {...props} isSignedIn={this.state.isSignedIn} updateSignedIn={this.updateSignedIn} />) } />
             <Route exact path="/story/:id" render={(props) => (<Story {...props} key={props.location.pathname} addStory={addStory} getStory={getStory} getChildStories={getChildStories} />)} />
           </Switch>
         </div>
